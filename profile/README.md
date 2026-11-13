@@ -167,7 +167,9 @@ Core проверяет JWT самостоятельно по публичном
 
 #### Мобильное приложение (Android)
 
-Требования: JDK 21, Android SDK (или Android Studio).
+Требования: JDK 11, Android SDK. 
+
+Сама сборка проходит через Gradle wrapper, который уже находится в репозитории.
 
 ```bash
 cd Mobile
