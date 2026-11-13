@@ -36,23 +36,20 @@
 - Объемы дисковой системы: Каталог продуктов (миллионы штрихкодов) займет порядка 14 ГБ. Данные инвентаря пользователей (5000 пользователей × 200 записей за 2 года) — еще около 200–300 МБ. Итоговая потребность с учетом индексов PostgreSQL составит не более 3–5 ГБ дискового пространства на 5 лет.
 
 #### Диаграммы
-Диаграммы построены по подходу [C4 model](https://c4model.com/) (уровни 1 и 2) и схема БД в виде ER-диаграммы. Исходники лежат рядом с картинками в [`docs/diagrams`](docs/diagrams) (`.dot` - Graphviz, `.mmd` - Mermaid).
 
 ##### C4, уровень 1 - System Context
 
-![C4, уровень 1 - System Context](docs/diagrams/c4-context.png)
+![C4, уровень 1 - System Context](https://raw.githubusercontent.com/polyshelf/.github/HEAD/docs/diagrams/c4-context.png)
 
 ##### C4, уровень 2 - Containers
 
-![C4, уровень 2 - Containers](docs/diagrams/c4-containers.png)
+![C4, уровень 2 - Containers](https://raw.githubusercontent.com/polyshelf/.github/HEAD/docs/diagrams/c4-containers.png)
 
 Core проверяет JWT самостоятельно по публичному ключу (подпись выполняет только Auth), поэтому между сервисами нет синхронных обращений за авторизацией.
 
 #### Схема базы данных
 
-![ER-диаграмма базы данных](docs/diagrams/er-diagram.png)
-
-Миграции лежат в `backend/flyway/migration` (`V1__init.sql` … `V4__fetch_history.sql`), `ddl-auto: validate` гарантирует, что схема в БД совпадает с моделью приложения.
+![ER-диаграмма базы данных](https://raw.githubusercontent.com/polyshelf/.github/HEAD/docs/diagrams/er-diagram.png)
 
 **Ключевые решения:**
 - Товар с известным штрихкодом ссылается на каталог (`product_id`), товар без кода или с ещё неизвестным кодом хранит собственное имя (`custom_name`). Между ними действует `CHECK`: заполнено ровно одно из двух полей.
@@ -68,7 +65,6 @@ Core проверяет JWT самостоятельно по публичном
 - Пароль и refresh-токены хранятся только в виде хэшей.
 
 #### Контракты API
-Полная спецификация - [`backend/openapi.yaml`](backend/openapi.yaml) (OpenAPI 3.1), Swagger UI поднимается сервисами core и auth. Все запросы идут через gateway (`https://polyshelf.wedwin.ru`, локально `http://localhost:8080`). Защищённые методы требуют заголовок `Authorization: Bearer <access_token>`.
 
 **Авторизация (`/auth`)**
 
