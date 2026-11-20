@@ -6,6 +6,15 @@
  - Николаев Артём Дмитриевич, ак/гр 5130904/40103
  - Парфенов Ярослав Михайлович, ак/гр 5130904/40103
 
+## Оглавление
+1. [Стек](#стек)
+2. [Архитектурные решения и требования](#архитектурные-решения-и-требования)
+   - [1. Определение проблемы](#1-определение-проблемы)
+   - [2. Выработка требований](#2-выработка-требований)
+   - [3. Разработка архитектуры и детальное проектирование](#3-разработка-архитектуры-и-детальное-проектирование)
+   - [4. Написание кода и тестирование](#4-написание-кода-и-тестирование)
+   - [5. Сборка и запуск](#5-сборка-и-запуск)
+
 ## Стек
 - БД - PostgreSQL 18 (миграции - Flyway)
 - ЯП серверной части - Java 25, Spring Boot (микросервисы: gateway, core, auth, datamatrix-adapter), сборка Gradle
@@ -131,11 +140,29 @@ Core проверяет JWT самостоятельно по публичном
 
 #### Скриншоты приложения
 
-| Экран | Скриншот |
-|---|---|
-| Список продуктов («виртуальный холодильник») (US-3) | ![Инвентарь](docs/screenshots/inventory.png) |
-| Сканер употреблённых продуктов / DataMatrix (US-1) | ![Сканер](docs/screenshots/done.png) |
-| Push-уведомление об истекающем сроке (US-2) | ![Уведомление](docs/screenshots/notification.png) |
+<table width="100%">
+  <thead>
+    <tr>
+      <th align="center">Список продуктов<br></th>
+      <th align="center">Список употреблённых продуктов<br></th>
+      <th align="center">Push-уведомление<br></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center" valign="top">
+        <img src="https://raw.githubusercontent.com/polyshelf/.github/HEAD/docs/screenshots/inventory.png" width="240" alt="Инвентарь">
+      </td>
+      <td align="center" valign="top">
+        <img src="https://raw.githubusercontent.com/polyshelf/.github/HEAD/docs/screenshots/done.png" width="240" alt="Сканер">
+      </td>
+      <td align="center" valign="top">
+        <img src="https://raw.githubusercontent.com/polyshelf/.github/HEAD/docs/screenshots/notification.png" width="240" alt="Уведомление">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
 ### 5. Сборка и запуск
 #### Серверная часть (docker compose)
